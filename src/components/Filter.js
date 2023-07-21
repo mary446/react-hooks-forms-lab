@@ -1,9 +1,19 @@
-import React from "react";
+//import React, { useState } from "react";
+//filter fuction and handleSearchChange
+function Filter({ onCategoryChange, onSearchChange, itemSearch }) {
+  function handleSearchChange(event) {
+    onSearchChange(event.target.value);
+  }
 
-function Filter({ onCategoryChange }) {
   return (
     <div className="Filter">
-      <input type="text" name="search" placeholder="Search..." />
+      <input
+        type="text"
+        name="search"
+        placeholder="Search..."
+        value={itemSearch}
+        onChange={handleSearchChange}
+      />
       <select name="filter" onChange={onCategoryChange}>
         <option value="All">Filter by category</option>
         <option value="Produce">Produce</option>
@@ -13,5 +23,6 @@ function Filter({ onCategoryChange }) {
     </div>
   );
 }
+
 
 export default Filter;
